@@ -2,7 +2,7 @@ import streamlit as st
 from groq import Groq
 
 # Initialize Groq client with API key from secrets
-client = Groq(api_key=st.secrets["GROQ_API_KEY"])
+client = Groq(api_key=st.secrets["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"])
 
 # Streamlit page configuration
 st.set_page_config(page_title="Groq AI Chatbot", page_icon="🤖", layout="centered")
