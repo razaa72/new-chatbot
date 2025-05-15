@@ -2,7 +2,7 @@ import streamlit as st
 from groq import Groq
 
 # Initialize Groq client with API key from secrets
-client = Groq(api_key=st.secrets["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"])
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # Streamlit page configuration
 st.set_page_config(page_title="Groq AI Chatbot", page_icon="🤖", layout="centered")
@@ -47,6 +47,6 @@ if prompt := st.chat_input("What is your message?"):
             # Stream response
             response = st.write_stream(chunk.choices[0].delta.content or "" for chunk in stream if chunk.choices[0].delta.content)
             # Save response to history
-            st.session_state.messages.append({"role": "assistant", "content": overridresponse})
+            st.session_state.messages.append({"role": "assistant", "content": response})
         except Exception as e:
             st.error(f"Error: {str(e)}")
